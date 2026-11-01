@@ -36,12 +36,11 @@ html { scroll-behavior: auto; }
 body[data-phase="intro"] #intro, body[data-phase="s1"] #steps, body[data-phase="s2"] #steps, body[data-phase="s3"] #steps, body[data-phase="outro"] #outro { display: block; }
 
 /* intro */
-#intro h1 { position: absolute; left: 60px; top: 250px; width: 960px; margin: 0; font-size: 90px; line-height: 1.26; }
-#intro .photos { position: absolute; left: 60px; top: 830px; width: 960px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-#intro figure { margin: 0; position: relative; border-radius: 36px; overflow: hidden; border: 2px solid var(--line); background: var(--band); }
-#intro figure img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-#intro figcaption { position: absolute; left: 18px; bottom: 18px; background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 10px 24px; font-size: 26px; font-weight: 600; }
-#intro .pills { position: absolute; left: 60px; top: 1480px; width: 960px; display: flex; flex-wrap: wrap; gap: 16px; }
+#intro h1 { position: absolute; left: 60px; top: 250px; width: 960px; margin: 0; font-size: 84px; line-height: 1.26; }
+#intro .cutcard { position: absolute; left: 60px; top: 890px; width: 960px; height: 540px; background: var(--soft); border: 2px solid var(--line); border-radius: 44px; }
+#intro .cutcard img { position: absolute; left: 80px; bottom: 0; width: 800px; height: auto; display: block; }
+#intro .cutcard .cap { position: absolute; right: 28px; bottom: 26px; background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 10px 26px; font-size: 26px; font-weight: 600; }
+#intro .pills { position: absolute; left: 60px; top: 1470px; width: 960px; display: flex; flex-wrap: wrap; gap: 16px; }
 .pill { background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 12px 28px; font-size: 30px; font-weight: 600; box-shadow: 0 8px 18px rgba(75, 29, 94, 0.08); }
 .pill b { color: var(--accent); }
 body[data-phase="intro"] #intro .r { animation: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d, 0s) both; }
@@ -94,10 +93,7 @@ html = f"""<!doctype html>
 
   <section class="phase" id="intro">
     <h1 class="r" style="--d:.15s">Dokter hewan di Sidoarjo yang <span class="hl">menjelaskan</span> sampai Anda paham.</h1>
-    <div class="photos">
-      <figure class="r" style="--d:.7s"><img src="../assets/klinik-suko-depan.jpg" alt=""><figcaption>Vetcare 1, Suko</figcaption></figure>
-      <figure class="r" style="--d:1s"><img src="../assets/klinik-vet2-resepsi.jpg" alt="" style="object-position:50% 28%"><figcaption>Vetcare 2, Sidokare Asri</figcaption></figure>
-    </div>
+    <div class="cutcard r" style="--d:.6s"><img src="../assets/hero-cutout.png" alt=""><span class="cap">Klinik Sidoarjo</span></div>
     <div class="pills">
       <span class="pill r" style="--d:1.5s"><b>4,9</b> di Google Maps</span>
       <span class="pill r" style="--d:1.7s"><b>1.182</b> ulasan</span>
