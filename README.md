@@ -20,7 +20,7 @@ Lalu buka http://localhost:8000.
 ## Desain
 
 - **Warna:** dominan putih dengan pink anggrek dari logo (`--pink: #b858a0` untuk dekorasi, `--accent: #a8478f` untuk teks dan tombol agar kontrasnya cukup). Semua warna ada di blok `:root` pada `index.html`.
-- **Font:** Kaushan Script untuk judul, meniru tulisan tangan "Drh.Erlangga" pada logo. Montserrat untuk isi, dengan label huruf kapital renggang seperti "PETSHOP & PETCARE". Keduanya dimuat dari Google Fonts.
+- **Font:** Kaushan Script hanya untuk nama "Drh.Erlangga" di header, meniru tulisan tangan pada logo. Courgette untuk judul (bergaya sama tapi lebih mudah dibaca). Montserrat untuk isi, dengan label huruf kapital renggang seperti "PETSHOP & PETCARE". Semuanya dimuat dari Google Fonts.
 - **Pola layout** (terinspirasi dari situs klinik lain, tanpa menyalin teks atau foto): tombol WhatsApp melayang, pilihan layanan berdasarkan kebutuhan, bagian tanda darurat, langkah layanan, dan profil dokter.
 - **Interaksi:** tombol konsultasi dan kartu layanan membuka WhatsApp dengan pesan yang sudah terisi. Tombol salin nomor ada di kartu lokasi.
 

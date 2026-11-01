@@ -13,9 +13,9 @@
 <link rel="icon" href="assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&family=Kaushan+Script&family=Montserrat:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: header dengan CTA, hero + strip kepercayaan, kartu kebutuhan, dokter, ulasan, langkah, edukasi, tanda darurat, lokasi, kontak. Tombol WhatsApp melayang. Dominan putih dengan pink anggrek dari logo; judul memakai script seperti tulisan "Drh.Erlangga", label memakai huruf kapital renggang seperti "PETSHOP & PETCARE". */
+/* Layout: header dengan CTA, hero + strip kepercayaan, kartu kebutuhan, dokter, ulasan, langkah, edukasi, tanda darurat, lokasi, kontak. Tombol WhatsApp melayang. Dominan putih dengan pink anggrek dari logo; nama merek memakai script seperti tulisan "Drh.Erlangga", judul memakai Courgette yang lebih mudah dibaca, label memakai huruf kapital renggang seperti "PETSHOP & PETCARE". */
 :root {
   --bg: #ffffff;
   --surface: #ffffff;
@@ -30,6 +30,7 @@
   --focus: #7a2f68;
   --ok: #1b7a43;
   --font-script: "Kaushan Script", "Brush Script MT", cursive;
+  --font-headline: "Courgette", "Kaushan Script", "Brush Script MT", cursive;
   --font-display: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme: light;
@@ -47,7 +48,7 @@ body {
 }
 img { max-width: 100%; height: auto; }
 h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; text-wrap: balance; margin: 0; }
-h1, h2 { font-family: var(--font-script); font-weight: 400; letter-spacing: 0; line-height: 1.25; }
+h1, h2 { font-family: var(--font-headline); font-weight: 400; letter-spacing: 0; line-height: 1.3; }
 .hl { color: var(--accent); }
 p { margin: 0; }
 a { color: inherit; }
@@ -87,7 +88,7 @@ a { color: inherit; }
 .status { display: inline-flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 0.875rem; font-weight: 500; margin-bottom: 20px; }
 .status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--pink); flex: none; }
 .eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-.hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.7rem); }
+.hero h1 { font-size: clamp(2rem, 4.8vw, 3.2rem); }
 .hero .lead { margin-top: 20px; font-size: 1.0625rem; color: var(--muted); max-width: 54ch; }
 
 .panel { display: grid; gap: 12px; min-width: 0; }
@@ -108,7 +109,7 @@ section { scroll-margin-top: 72px; }
 .block { padding-block: 64px; }
 .block.band { background: var(--band); }
 .block-head { max-width: 62ch; margin-bottom: 36px; }
-.block-head h2 { font-size: clamp(1.7rem, 3.8vw, 2.5rem); }
+.block-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
 .block-head p { margin-top: 12px; color: var(--muted); }
 .note { font-size: 0.875rem; color: var(--muted); margin-top: 24px; max-width: 70ch; }
 
@@ -122,7 +123,7 @@ section { scroll-margin-top: 72px; }
 
 /* dokter */
 .doctor { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
-.doctor h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
+.doctor h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
 .doctor .lead { margin-top: 14px; color: var(--muted); max-width: 54ch; }
 .fields { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .docs { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 20px; }
@@ -176,7 +177,7 @@ section { scroll-margin-top: 72px; }
 
 /* darurat */
 .urgent { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 48px; align-items: start; }
-.urgent h2 { font-size: clamp(1.7rem, 3.8vw, 2.5rem); }
+.urgent h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
 .urgent .lead { margin-top: 14px; color: var(--muted); }
 .signs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .signs li { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 14px 16px; font-weight: 500; }
