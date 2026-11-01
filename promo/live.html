@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Promo live preview Drh. Erlangga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+/* Video promo: ponsel berisi situs asli (iframe) yang digulir, dengan langkah bernomor, chip, dan maskot. */
+:root {
+  --bg: #ffffff; --band: #fdf4f9; --soft: #f7e4f1; --ink: #1d1a1f; --muted: #655a69;
+  --pink: #b858a0; --accent: #a8478f; --accent-deep: #8f3a7b; --line: #ecd6e5;
+  --font-script: "Kaushan Script", cursive; --font: "Montserrat", system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; transition: none !important; }
+html, body { margin: 0; overflow: hidden; background: #fff; font-family: var(--font); color: var(--ink); }
+#canvas { position: relative; overflow: hidden; background: #fff; }
+body.f916 #canvas { width: 1080px; height: 1920px; }
+body.f169 #canvas { width: 1920px; height: 1080px; }
+.dm { position: absolute; border-radius: 12%; transform: rotate(45deg); pointer-events: none; }
+.dm.d1 { border: 3px solid var(--line); }
+.dm.d2 { background: var(--soft); opacity: .75; }
+body.f916 .dm.d1 { width: 760px; height: 760px; right: -380px; top: 40px; }
+body.f916 .dm.d2 { width: 620px; height: 620px; left: -330px; bottom: 120px; }
+body.f169 .dm.d1 { width: 900px; height: 900px; right: -300px; top: -420px; }
+body.f169 .dm.d2 { width: 700px; height: 700px; left: -340px; bottom: -300px; }
+
+.brandbar { position: absolute; display: flex; align-items: center; gap: 22px; z-index: 6; animation: rise .7s cubic-bezier(.2,.8,.2,1) .1s both; }
+body.f916 .brandbar { left: 60px; top: 60px; } body.f169 .brandbar { left: 120px; top: 56px; }
+.brandbar img { width: 92px; height: 92px; border-radius: 50%; border: 2px solid var(--line); background: #fff; }
+.brandbar .nm { display: grid; gap: 6px; }
+.brandbar b { font: 400 56px/1 var(--font-script); }
+.brandbar i { font-style: normal; font-size: 19px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--accent); }
+
+/* ponsel */
+.phone { position: absolute; background: #1d1a1f; border-radius: 74px; box-shadow: 0 50px 90px rgba(75, 29, 94, .30); animation: rise .9s cubic-bezier(.2,.8,.2,1) .15s both; }
+.phone .screen { position: absolute; inset: 14px; border-radius: 60px; overflow: hidden; background: #fff; }
+.phone iframe { position: absolute; left: 0; top: 0; width: 390px; height: 844px; border: 0; transform-origin: 0 0; background: #fff; }
+.phone .island { position: absolute; z-index: 3; left: 50%; top: 30px; transform: translateX(-50%); width: 150px; height: 40px; border-radius: 22px; background: #1d1a1f; }
+
+/* teks langkah */
+.info { position: absolute; z-index: 4; display: none; }
+body.f916 .info { left: 60px; top: 190px; width: 960px; }
+body.f169 .info { left: 120px; top: 230px; width: 920px; }
+.kick { font-size: 26px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+.info h1, .info h2 { margin: 0; font-weight: 700; letter-spacing: -.02em; line-height: 1.12; }
+body.f916 .info h1 { font-size: 84px; } body.f169 .info h1 { font-size: 92px; }
+.hl { color: var(--accent); }
+.pill { display: inline-flex; align-items: center; gap: 22px; background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 12px 40px 12px 14px; box-shadow: 0 14px 30px rgba(75, 29, 94, .10); }
+.pill .n { width: 78px; height: 78px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; font-size: 44px; display: grid; place-items: center; }
+body.f916 .pill h2 { font-size: 56px; } body.f169 .pill h2 { font-size: 60px; }
+.sub { margin-top: 22px; color: var(--muted); line-height: 1.45; font-weight: 500; }
+body.f916 .sub { font-size: 36px; max-width: 900px; } body.f169 .sub { font-size: 38px; max-width: 780px; }
+
+/* chip dan maskot */
+.chips { position: absolute; z-index: 5; display: none; gap: 20px; }
+body.f916 .chips { left: 26px; top: 700px; flex-direction: column; align-items: flex-start; }
+body.f169 .chips { left: 120px; top: 690px; flex-direction: row; flex-wrap: wrap; width: 900px; }
+.chip { background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 14px 32px; font-size: 32px; font-weight: 700; box-shadow: 0 14px 28px rgba(75, 29, 94, .16); }
+.mascot { position: absolute; z-index: 5; display: none; align-items: flex-end; gap: 18px; }
+body.f916 .mascot { right: 34px; top: 1450px; flex-direction: column; align-items: flex-end; }
+body.f169 .mascot { left: 120px; top: 850px; flex-direction: row; align-items: center; }
+.mascot .av { width: 130px; height: 130px; border-radius: 50%; border: 4px solid var(--pink); background: #fff; overflow: hidden; box-shadow: 0 16px 30px rgba(75, 29, 94, .22); animation: floaty 3s ease-in-out infinite; }
+.mascot .av img { display: block; width: 100%; height: 100%; }
+.say { max-width: 440px; background: #fff; border: 2px solid var(--line); border-radius: 26px; padding: 16px 26px; font-size: 30px; font-weight: 700; line-height: 1.3; box-shadow: 0 14px 28px rgba(75, 29, 94, .16); }
+body.f916 .say { border-bottom-right-radius: 6px; } body.f169 .say { border-bottom-left-radius: 6px; }
+
+/* tampil per adegan */
+body[data-scene="0"] .s0, body[data-scene="1"] .s1, body[data-scene="2"] .s2, body[data-scene="3"] .s3, body[data-scene="4"] .s4 { display: block; }
+body[data-scene="0"] .chips.s0, body[data-scene="1"] .chips.s1, body[data-scene="2"] .chips.s2, body[data-scene="3"] .chips.s3, body[data-scene="4"] .chips.s4 { display: flex; }
+body[data-scene="0"] .mascot.s0, body[data-scene="1"] .mascot.s1, body[data-scene="2"] .mascot.s2, body[data-scene="3"] .mascot.s3, body[data-scene="4"] .mascot.s4 { display: flex; }
+body[data-scene="5"] .phone, body[data-scene="5"] .info, body[data-scene="5"] .chips, body[data-scene="5"] .mascot { display: none; }
+body[data-scene] .a { animation: pop .6s cubic-bezier(.2,.9,.3,1.25) var(--d, 0s) both; }
+@keyframes pop { from { opacity: 0; transform: translateY(24px) scale(.9); } to { opacity: 1; transform: none; } }
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* penutup */
+#outro { position: absolute; inset: 0; z-index: 8; display: none; place-items: center; background: #fff; text-align: center; }
+body[data-scene="5"] #outro { display: grid; }
+#outro .box { display: grid; justify-items: center; gap: 0; }
+#outro .big { width: 230px; height: 230px; border-radius: 50%; border: 4px solid var(--pink); background: #fff; overflow: hidden; box-shadow: 0 20px 44px rgba(75, 29, 94, .16); }
+#outro .big img { width: 100%; height: 100%; display: block; }
+#outro .wm { font: 400 124px/1.1 var(--font-script); margin-top: 30px; }
+#outro .ws { font-size: 28px; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin-top: 6px; }
+#outro .cta { margin-top: 60px; background: var(--accent); color: #fff; border-radius: 999px; padding: 28px 62px; font-size: 46px; font-weight: 700; display: flex; align-items: center; gap: 20px; box-shadow: 0 18px 36px rgba(168, 71, 143, .35); }
+#outro .cta svg { width: 58px; height: 58px; fill: currentColor; }
+#outro .num { margin-top: 32px; font-size: 74px; font-weight: 700; letter-spacing: .02em; }
+#outro .meta { margin-top: 10px; font-size: 30px; color: var(--muted); }
+#outro .locs { margin-top: 44px; display: grid; gap: 10px; font-size: 34px; }
+#outro .locs b { color: var(--accent); }
+#outro .hn { margin-top: 40px; font-size: 28px; color: var(--muted); display: grid; gap: 4px; }
+body.f169 #outro .box { transform: scale(.82); }
+</style></head>
+<body class="f916" data-scene="0">
+<div id="canvas">
+  <span class="dm d1"></span><span class="dm d2"></span>
+  <div class="brandbar"><img src="../assets/logo.jpg" alt=""><div class="nm"><b>Drh.Erlangga</b><i>Petshop &amp; Petcare</i></div></div>
+
+  <div class="phone" id="phone"><div class="island"></div><div class="screen" id="screen"><iframe id="site" src="../index.html" title="Pratinjau situs" scrolling="no"></iframe></div></div>
+
+  <div class="info s0"><div class="kick a" style="--d:.15s">give the best for your pets</div><h1 class="a" style="--d:.3s">Memahami <span class="hl">kebutuhan peliharaan</span> Anda dengan lebih baik</h1></div>
+  <div class="info s1"><div class="pill a"><span class="n">1</span><h2>Layanan lengkap</h2></div><p class="sub a" style="--d:.25s">Pemeriksaan, vaksinasi, sterilisasi, bedah, USG, rawat inap, cat hotel, dan grooming.</p></div>
+  <div class="info s2"><div class="pill a"><span class="n">2</span><h2>Kenali dokter kami</h2></div><p class="sub a" style="--d:.25s">Drh. Yudha Bayu Erlangga dan Drh. Radhita Andriani.</p></div>
+  <div class="info s3"><div class="pill a"><span class="n">3</span><h2>Apa kata mereka?</h2></div><p class="sub a" style="--d:.25s">Rating sekitar 4,9 dari 1.655 ulasan di Google Maps.</p></div>
+  <div class="info s4"><div class="pill a"><span class="n">4</span><h2>Lokasi &amp; jam operasional</h2></div><p class="sub a" style="--d:.25s">Dua klinik di Sidoarjo, Selasa – Minggu dengan janji temu.</p></div>
+
+  <div class="chips s1"><span class="chip a" style="--d:.9s">Vaksinasi</span><span class="chip a" style="--d:1.4s">Sterilisasi</span><span class="chip a" style="--d:1.9s">USG</span></div>
+  <div class="chips s2"><span class="chip a" style="--d:.9s">Surgery</span><span class="chip a" style="--d:1.4s">Interna</span><span class="chip a" style="--d:1.9s">Dermatology</span></div>
+  <div class="chips s3"><span class="chip a" style="--d:.9s">4,9 di Google Maps</span><span class="chip a" style="--d:1.4s">1.655 ulasan</span></div>
+  <div class="chips s4"><span class="chip a" style="--d:.9s">Klinik Suko</span><span class="chip a" style="--d:1.4s">Klinik Sidokare Asri</span><span class="chip a" style="--d:1.9s">Selasa – Minggu</span></div>
+
+  <div class="mascot s0"><span class="av"><img src="../assets/logo.jpg" alt=""></span><p class="say a" style="--d:1.2s">Halo! Kami siap membantu.</p></div>
+  <div class="mascot s1"><span class="av"><img src="../assets/logo.jpg" alt=""></span><p class="say a" style="--d:1.2s">Pilih sesuai kebutuhan hewan peliharaan Anda.</p></div>
+  <div class="mascot s2"><span class="av"><img src="../assets/logo.jpg" alt=""></span><p class="say a" style="--d:1.2s">Dokter kami siap menjelaskan.</p></div>
+  <div class="mascot s3"><span class="av"><img src="../assets/logo.jpg" alt=""></span><p class="say a" style="--d:1.2s">Terima kasih atas kepercayaannya!</p></div>
+  <div class="mascot s4"><span class="av"><img src="../assets/logo.jpg" alt=""></span><p class="say a" style="--d:1.2s">Hubungi kami sebelum berangkat.</p></div>
+
+  <section id="outro"><div class="box">
+    <span class="big a" style="--d:.1s"><img src="../assets/logo.jpg" alt=""></span>
+    <div class="wm a" style="--d:.25s">Drh.Erlangga</div>
+    <div class="ws a" style="--d:.35s">Petshop &amp; Petcare</div>
+    <div class="cta a" style="--d:.6s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 0 1 12 3.8zM8.6 7.4c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.7-.4l-1.9-.9c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.7-.4z"/></svg><span>Konsultasi lewat WhatsApp</span></div>
+    <div class="num a" style="--d:.9s">0857-4594-8865</div>
+    <div class="meta a" style="--d:1s">Praktik sesuai perjanjian · Selasa – Minggu</div>
+    <div class="locs"><div class="a" style="--d:1.2s"><b>Klinik Suko</b> · Sukodono</div><div class="a" style="--d:1.4s"><b>Klinik Sidokare Asri</b> · Candi</div></div>
+    <div class="hn a" style="--d:1.7s"><span>Instagram @drh.erlangga_petshop_petcare</span><span>TikTok @doktererlanggavetcare</span></div>
+  </div></section>
+</div>
+
+<script>
+// ---- kendali waktu deterministik ----
+var FMT = (new URLSearchParams(location.search).get('fmt') === '169') ? '169' : '916';
+document.body.className = 'f' + FMT;
+var SIZE = FMT === '169' ? { w: 1920, h: 1080 } : { w: 1080, h: 1920 };
+// bingkai ponsel per format (piksel kanvas)
+var PH = FMT === '169' ? { left: 1250, top: 40, w: 500, h: 1000 } : { left: 226, top: 470, w: 628, h: 1326 };
+var phone = document.getElementById('phone');
+phone.style.cssText += ';left:' + PH.left + 'px;top:' + PH.top + 'px;width:' + PH.w + 'px;height:' + PH.h + 'px';
+var SCALE = (PH.w - 28) / 390;
+var site = document.getElementById('site');
+site.style.transform = 'scale(' + SCALE + ')';
+site.style.height = Math.ceil((PH.h - 28) / SCALE) + 'px';
+
+// jadwal adegan (detik)
+var SC = [[0, 4.0], [4.0, 9.6], [9.6, 14.4], [14.4, 19.2], [19.2, 24.0], [24.0, 29.0]];
+window.TOTAL = 29.0;
+window.SIZE = SIZE;
+var HEAD = 118; // tinggi header lengket situs pada lebar ponsel (diukur saat siap)
+var keys = null;
+function ease(p) { return p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; }
+function scrollAt(t) {
+  if (!keys) return 0;
+  if (t <= keys[0][0]) return keys[0][1];
+  for (var i = 1; i < keys.length; i++) {
+    if (t <= keys[i][0]) {
+      var a = keys[i - 1], b = keys[i], p = (t - a[0]) / (b[0] - a[0]);
+      return a[1] + (b[1] - a[1]) * ease(Math.max(0, Math.min(1, p)));
+    }
+  }
+  return keys[keys.length - 1][1];
+}
+
+window.liveReady = new Promise(function (resolve) {
+  function prep() {
+    var win = site.contentWindow, doc = site.contentDocument;
+    var st = doc.createElement('style');
+    st.textContent = 'html{scroll-behavior:auto!important} .rv{opacity:1!important;transform:none!important}' +
+      '.hero .wrap>div:first-child>*,.hero-art,.hero h1 .w{animation:none!important;opacity:1!important;transform:none!important}' +
+      '.fab,.progress{display:none!important} .need:hover,.post:hover{transform:none!important}';
+    doc.head.appendChild(st);
+    doc.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
+    doc.querySelectorAll('.rv').forEach(function (n) { n.classList.add('in'); });
+    var waitImgs = Array.prototype.map.call(doc.images, function (i) { return i.decode ? i.decode().catch(function () {}) : null; });
+    Promise.all([doc.fonts.ready, Promise.all(waitImgs)]).then(function () {
+      setTimeout(function () {
+        var head = doc.querySelector('header.top');
+        HEAD = head ? head.getBoundingClientRect().height : 118;
+        function top(id) { var e = doc.getElementById(id); return e.getBoundingClientRect().top + win.scrollY - HEAD - 6; }
+        var L = top('layanan'), D = top('dokter'), U = top('ulasan'), K = top('lokasi');
+        keys = [[0, 0], [3.4, 0], [4.9, L], [9.0, L + 420], [10.6, D], [13.8, D + 280], [15.4, U], [18.6, U + 300], [20.0, K], [23.6, K + 560], [29, K + 560]];
+        resolve(true);
+      }, 600);
+    });
+  }
+  if (site.contentDocument && site.contentDocument.readyState === 'complete') prep(); else site.addEventListener('load', prep);
+});
+
+window.seek = function (t) {
+  var scene = 5, lt = 0;
+  for (var i = 0; i < SC.length; i++) if (t >= SC[i][0] && t < SC[i][1]) { scene = i; lt = t - SC[i][0]; break; }
+  if (t >= SC[SC.length - 1][1]) { scene = 5; lt = t - SC[5][0]; }
+  document.body.setAttribute('data-scene', String(scene));
+  // situs: gulir dan bekukan semua animasi pada keadaan akhir
+  var win = site.contentWindow, doc = site.contentDocument;
+  win.scrollTo(0, scrollAt(t));
+  doc.getAnimations().forEach(function (a) {
+    a.pause();
+    var inf = false; try { inf = a.effect.getComputedTiming().iterations === Infinity; } catch (e) {}
+    a.currentTime = inf ? 0 : 1e6;
+  });
+  void document.body.offsetHeight;
+  document.getAnimations().forEach(function (a) {
+    var el = a.effect && a.effect.target;
+    var global = el && el.closest && (el.closest('.brandbar') || el.closest('.phone'));
+    a.pause();
+    a.currentTime = (global ? t : lt) * 1000;
+  });
+};
+</script>
+</body></html>
