@@ -7,6 +7,12 @@ Landing page statis untuk klinik hewan Drh. Erlangga di Sidoarjo. Satu file HTML
 - `index.html`: seluruh halaman (hero, layanan, ulasan, edukasi, lokasi, kontak, data terstruktur JSON-LD).
 - `assets/`: logo dan gambar edukasi dari akun Instagram klinik (`logo.jpg`, `testimoni.jpg`, `edukasi-*.jpg`), serta tiga foto klinik yang diunggah akun klinik sendiri di Google Maps (`klinik-suko-depan.jpg`, `klinik-vet2-resepsi.jpg`, `klinik-vet2-kandang.jpg`).
 
+## Dokumen lain
+
+- `AUDIT.md`: hasil audit memakai meta prompt, temuan terukur, dan yang belum selesai.
+- `CLAUDE.md`: aturan desain proyek dan cara memakai skill UI/UX Pro Max di `.claude/skills/ui-ux-pro-max`.
+- `promo/`: video promo 9:16 dan skrip render. Video belum dirender ulang setelah audit terakhir, jadi tampilan panggung ponselnya masih versi sebelum motif berlian.
+
 ## Menjalankan
 
 Buka `index.html` di browser, atau jalankan server lokal:

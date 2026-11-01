@@ -1,0 +1,79 @@
+# Audit web: Drh. Erlangga Petshop & Petcare
+
+Diaudit pada 1 November 2026 memakai meta prompt "Reusable Creative Website Master Prompt" sebagai daftar periksa, ditambah aturan prioritas dari skill UI/UX Pro Max. Angka diukur langsung di browser (desktop 1024 px dan ponsel 375 px).
+
+## 1. Konfigurasi proyek (diisi dari meta prompt)
+
+```txt
+PROJECT_NAME        = "Drh. Erlangga Petshop & Petcare"
+PROJECT_TYPE        = "Landing page klinik hewan lokal (Sidoarjo)"
+PRIMARY_GOAL        = "Mengubah pemilik hewan menjadi konsultasi WhatsApp"
+TARGET_AUDIENCE     = "Pemilik anjing, kucing, dan kelinci di Sidoarjo"
+PRIMARY_CTA         = "Konsultasi lewat WhatsApp (0857-4594-8865)"
+VISUAL_STYLE        = "Bersih, dominan putih, hangat, bernuansa tulisan tangan"
+MOOD                = "Ramah, tepercaya, personal"
+COLOR_DIRECTION     = "Putih; pink anggrek logo #b858a0 untuk dekorasi; #a8478f untuk teks dan tombol"
+TYPOGRAPHY_STYLE    = "Kaushan Script (nama merek), Courgette (judul), Montserrat (isi dan label)"
+GRAPHIC_LANGUAGE    = "Berlian dari logo, cakar, foto asli klinik, kartu edukasi Instagram"
+ANIMATION_STYLE     = "Halus dan bermakna; adegan ponsel bergaya video promo; bergerak hanya dengan transform dan opacity"
+TECH_STACK          = "HTML + CSS + JS biasa, tanpa build, tanpa dependensi"
+```
+
+## 2. Hasil per bagian meta prompt
+
+| # | Bagian meta prompt | Sebelum | Sesudah |
+|---|---|---|---|
+| 2 | Arah kreatif konsisten | Cukup. Blob blur tanpa makna di panggung animasi bertentangan dengan aturan "no meaningless blobs". | Blob diganti motif berlian dari logo. |
+| 4 | Stack: semantik, aksesibel, tanpa dependensi | Baik. Satu `h1`, landmark lengkap, `lang="id"`, nol dependensi. | Tetap. |
+| 5 | Aset asli, gambar dioptimalkan | Buruk. PNG hero 978 KB, foto depan 392 KB dimuat dua kali. Total 1.644 KB. | WebP 800–1000 px. Total sekitar **250 KB** (turun lebih dari 80%). Gambar hero dipramuat dengan `fetchpriority="high"`. |
+| 6 | Struktur halaman | Tidak ada penutup CTA yang tegas sebelum footer. | Tambah pita **Final CTA** dan footer wordmark. |
+| 7 | Sistem desain: token, kontras | Satu pasangan kontras 4,37:1 (chip spesialisasi, tautan kartu). | Token `--accent-deep` (#8f3a7b). Semua teks lolos 4,5:1. |
+| 9 | Komponen: tombol, kartu, gambar | Kartu layanan seragam 3×3. | Tata letak **bento** (kartu utama melebar), hover spotlight. |
+| 10 | Elemen grafis konsisten | Blob acak. | Motif berlian logo, stiker di footer. |
+| 12–14 | Animasi hero, scroll, micro-interaction | Hero: naik per blok. Scroll: fade sederhana. | Hero: judul muncul **per kata**. Scroll: bilah progres. Micro: tombol magnetik, spotlight kartu. |
+| 15 | Efek khusus | Adegan ponsel tiga langkah (sudah ada). | Tambah ticker layanan. |
+| 16 | Performa: hanya transform dan opacity | Dua animasi memakai `max-height` (memicu layout). Enam animasi tak berujung berjalan terus di luar layar. | `max-height` dihapus. Animasi **dijeda di luar layar** (IntersectionObserver). CLS 0. |
+| 17 | Responsif | Tidak ada overflow di 375 px. | Tetap. Bento kembali satu kolom di ponsel. |
+| 18 | Reduced motion | Sebagian. | Ticker, kata judul, bilah progres, tombol magnetik, dan footer ikut dimatikan. |
+| 19 | Aturan kualitas kreatif | Baik: tidak ada glow, glass, atau gradien acak. | Tetap. |
+
+## 3. Temuan terukur (aksesibilitas, prioritas 1–2 skill)
+
+| Temuan | Sebelum | Sesudah |
+|---|---|---|
+| Target sentuh di bawah 44 px | 14 elemen (menu 38 px, tombol Salin 28 px, tautan 26 px, tombol header 40 px) | **0** |
+| Kontras di bawah 4,5:1 | 1 pasangan (4,37:1) | **0** |
+| Berat halaman | 1.644 KB | **sekitar 250 KB** |
+| Layout shift (CLS) | 0 | 0 |
+| Animasi tak berujung di luar layar | 6 berjalan | dijeda |
+
+## 4. Komponen motion bergaya 21st.dev
+
+Komponen di 21st.dev berbasis React, Tailwind, dan Motion, jadi tidak disalin. Polanya ditulis ulang dengan CSS dan JS biasa agar situs tetap tanpa dependensi dan lisensi tiap komponen tidak terlibat.
+
+| Pola 21st.dev | Penerapan di sini |
+|---|---|
+| Marquee | Ticker layanan di bawah ringkasan. Dijeda saat hover dan di luar layar, statis saat reduced motion. |
+| Grids & Bento + spotlight card | Kartu layanan: tiga kartu melebar, cahaya pink mengikuti kursor. |
+| Sticker Footer with Script Wordmark | Footer dengan wordmark script besar dan stiker miring. |
+| Text reveal | Judul hero muncul per kata. |
+| Magnetic button | Tombol utama hero dan pita CTA bergeser tipis mengikuti kursor. |
+| Scroll progress | Bilah pink di atas halaman memakai `animation-timeline: scroll()` tanpa JS. |
+
+## 5. Skill UI/UX Pro Max
+
+Terpasang di `.claude/skills/ui-ux-pro-max` (MIT, dari commit yang tercatat di `VENDORED_FROM.txt`). Repo ditinjau lebih dulu: hanya berisi data CSV dan skrip Python pencarian, tanpa panggilan jaringan dan tanpa skrip instalasi otomatis. Dijalankan di Mac ini dengan Python 3.10, tanpa dependensi.
+
+Rekomendasinya (pola "Trust & Authority + Conversion": hero, bukti, solusi, CTA) dipakai untuk urutan bagian dan daftar periksa. Palet teal-oranye dan gaya claymorphism yang ia sarankan **tidak dipakai**, karena arahan Anda adalah palet putih-pink dari logo. Aturan skill sendiri menyebut hasilnya hanya rekomendasi.
+
+## 6. Pengukuran akhir
+
+Diukur ulang setelah semua perbaikan: kontras di bawah 4,5:1 = 0, target sentuh di bawah 44 px = 0 (kecuali tautan lompat yang hanya muncul saat fokus), CLS = 0, tidak ada error di konsol, tidak ada overflow horizontal di 375 px maupun 1024 px.
+
+## 7. Belum selesai
+
+- **Daftar harga** tidak ditemukan di sumber mana pun.
+- **Foto potongan** lembut di layar besar. Sumbernya hanya 360×640 px.
+- **Skala spasi dan tipografi** belum dijadikan token (masih nilai langsung di CSS).
+- **CSS tak terpakai** dari versi lama (`.services` dan sejenisnya) belum dibersihkan.
+- **Tes perangkat nyata**: diuji di emulasi browser, belum di ponsel fisik.
