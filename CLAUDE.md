@@ -9,7 +9,7 @@ Landing page statis (HTML, CSS, JS biasa, tanpa build). Isi dan sumber data ada 
 3. Rekomendasi skill `ui-ux-pro-max`.
 
 - **Warna:** dominan putih dengan pink anggrek logo. Dekorasi `--pink` (#b858a0), teks dan tombol `--accent` (#a8478f), teks di atas latar pink muda `--accent-deep` (#8f3a7b). Jangan memakai palet lain dari rekomendasi skill.
-- **Font:** Kaushan Script hanya untuk nama merek, Courgette untuk judul, Montserrat untuk isi dan label.
+- **Font:** Kaushan Script hanya untuk nama merek, Courgette untuk judul bagian (h2), Montserrat untuk isi dan label. Judul hero (h1) memakai Montserrat 700 agar mudah dibaca.
 - **Grafis:** motif berlian dari logo. Jangan blob blur, glow, atau gradien acak.
 - **Animasi:** hanya `transform` dan `opacity`. Semua animasi harus mati saat `prefers-reduced-motion`. Animasi tak berujung harus dijeda di luar layar.
 - **Target sentuh:** minimal 44 px. **Kontras teks:** minimal 4,5:1.
