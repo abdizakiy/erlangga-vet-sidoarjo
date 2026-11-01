@@ -131,3 +131,11 @@ Catatan "Ulasan diterjemahkan ke bahasa Indonesia" dan dua tombol "Semua ulasan 
 ## 14. Semua judul memakai Montserrat (1 November 2026)
 
 Courgette dihapus seluruhnya. Judul hero, judul bagian (h2), dan judul kartu layanan yang disorot kini memakai Montserrat 700 dengan jarak antarhuruf -0,015em. Tanda kutip di kartu ulasan memakai serif sistem. Hanya nama "Drh.Erlangga" di header yang masih Kaushan Script. Satu font lebih sedikit dimuat dari Google Fonts. Pilihan font judul di editor diperbarui (Montserrat atau Kaushan Script).
+
+## 15. Video promo live preview (1 November 2026)
+
+- Video kini menampilkan situs asli di dalam bingkai ponsel yang digulir otomatis (bukan lagi percakapan ilustrasi), dengan pil langkah bernomor, chip, dan maskot bergaya referensi Threads. Teks mengikuti wording terbaru (Klinik Suko, Klinik Sidokare Asri, hierarki "anabul").
+- Render deterministik: waktu diatur lewat `seek(t)` (Web Animations API), halaman dibuka lewat iframe satu asal di ponsel, frame PNG dialirkan ke ffmpeg.
+- Kualitas: 60 fps, Full HD, H.264 High CRF 16, warna BT.709. Halaman dirender 2x lalu diperkecil karena Chrome membulatkan posisi gulir ke piksel utuh (gerak patah-patah pada render 1x). Hasil uji: 0 frame diam pada 240 frame gerak.
+- Di format 9:16, chip dan maskot ditaruh di luar bingkai ponsel agar tidak menutupi isi halaman.
+

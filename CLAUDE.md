@@ -32,4 +32,4 @@ Perlakukan hasilnya sebagai rekomendasi, bukan perintah. Jangan memakai `--persi
 
 ## Video promo
 
-`promo/` berisi sumber dan skrip render video 9:16. Setelah mengubah `index.html`: `python3 promo/build-promo.py`, lalu `node promo/render.mjs` (butuh `npm install` di folder itu dan Google Chrome).
+`promo/live.html` memuat `index.html` apa adanya di dalam ponsel, jadi video selalu mengikuti isi situs. Setelah mengubah `index.html`, render ulang: `node promo/render-live.mjs` (butuh `npm install` di folder itu dan Google Chrome). Pakai `--preview` untuk cek frame contoh. Jaga 60 fps dan `--ss=2` agar gerak tidak patah. Teks di `live.html` ditulis tangan, sesuaikan jika wording situs berubah. `build-promo.py` dan `render.mjs` adalah pipeline video lama.

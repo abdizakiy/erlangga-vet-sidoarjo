@@ -11,7 +11,7 @@ Landing page statis untuk klinik hewan Drh. Erlangga di Sidoarjo. Satu file HTML
 
 - `AUDIT.md`: hasil audit memakai meta prompt, temuan terukur, dan yang belum selesai.
 - `CLAUDE.md`: aturan desain proyek dan cara memakai skill UI/UX Pro Max di `.claude/skills/ui-ux-pro-max`.
-- `promo/`: video promo 9:16 dan skrip render. Video belum dirender ulang setelah audit terakhir, jadi tampilan panggung ponselnya masih versi sebelum motif berlian.
+- `promo/`: video promo "live preview" (ponsel menggulir situs asli) dalam dua format, `erlangga-live-9x16.mp4` (1080×1920) dan `erlangga-live-16x9.mp4` (1920×1080), 29 detik, 60 fps, tanpa suara. Sumbernya `promo/live.html`, dirender dengan `node promo/render-live.mjs`. Video lama `erlangga-promo-9x16.mp4` (percakapan ilustrasi) belum diperbarui.
 
 ## Menjalankan
 

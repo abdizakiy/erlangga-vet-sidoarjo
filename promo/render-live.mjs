@@ -20,8 +20,10 @@ const repo = path.resolve(here, '..');
 const chrome = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 if (!existsSync(chrome)) throw new Error('Chrome tidak ditemukan di ' + chrome + '. Atur CHROME_PATH.');
 
-const FPS = 30;
+const FPS = Number((process.argv.find((a) => a.startsWith('--fps=')) || '--fps=60').split('=')[1]);
 const preview = process.argv.includes('--preview');
+// supersampling: halaman dirender SS kali lebih besar lalu diperkecil ke ukuran akhir (gerak lebih halus, teks lebih tajam)
+const SS = Number((process.argv.find((a) => a.startsWith('--ss=')) || '--ss=2').split('=')[1]);
 const pick = process.argv.slice(2).filter((a) => a === '916' || a === '169');
 const formats = pick.length ? pick : ['916', '169'];
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.json': 'application/json' };
@@ -45,7 +47,7 @@ const browser = await puppeteer.launch({ executablePath: chrome, headless: true,
 async function openPage(fmt) {
   const page = await browser.newPage();
   const size = fmt === '169' ? { width: 1920, height: 1080 } : { width: 1080, height: 1920 };
-  await page.setViewport({ ...size, deviceScaleFactor: 1 });
+  await page.setViewport({ ...size, deviceScaleFactor: SS });
   await page.goto(`http://127.0.0.1:${port}/promo/live.html?fmt=${fmt}`, { waitUntil: 'networkidle0' });
   await page.evaluate(() => window.liveReady);
   return page;
@@ -70,24 +72,26 @@ if (preview) {
 for (const fmt of formats) {
   const page = await openPage(fmt);
   const total = await page.evaluate(() => window.TOTAL);
-  const frames = path.join(here, 'frames-live-' + fmt);
-  await rm(frames, { recursive: true, force: true });
-  await mkdir(frames, { recursive: true });
-  const n = Math.round(total * FPS);
-  for (let i = 0; i < n; i++) {
-    await shot(page, i / FPS, path.join(frames, String(i).padStart(4, '0') + '.jpg'), { type: 'jpeg', quality: 93 });
-    if (i % 90 === 0) console.log(`[${fmt}] frame ${i}/${n}`);
-  }
-  await page.close();
   const out = path.join(here, `erlangga-live-${fmt === '169' ? '16x9' : '9x16'}.mp4`);
-  await new Promise((resolve, reject) => {
-    const ff = spawn(ffmpegPath, ['-y', '-framerate', String(FPS), '-i', path.join(frames, '%04d.jpg'),
-      '-f', 'lavfi', '-i', 'anullsrc=channel_layout=stereo:sample_rate=44100', '-shortest',
-      '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-r', String(FPS),
-      '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', out], { stdio: 'inherit' });
-    ff.on('exit', (c) => (c === 0 ? resolve() : reject(new Error('ffmpeg kode ' + c))));
-  });
-  await rm(frames, { recursive: true, force: true });
+  // frame PNG (tanpa kompresi lossy) dialirkan langsung ke ffmpeg, tanpa menulis ke disk
+  const ff = spawn(ffmpegPath, ['-y', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'png', '-i', '-',
+    '-f', 'lavfi', '-i', 'anullsrc=channel_layout=stereo:sample_rate=48000', '-shortest',
+    '-vf', `scale=${fmt === '169' ? 1920 : 1080}:${fmt === '169' ? 1080 : 1920}:in_range=full:out_range=tv:out_color_matrix=bt709:flags=lanczos+accurate_rnd+full_chroma_int,format=yuv420p`,
+    '-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-profile:v', 'high', '-level', '4.2', '-g', String(FPS * 2), '-bf', '2',
+    '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
+    '-r', String(FPS), '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', out], { stdio: ['pipe', 'inherit', 'inherit'] });
+  const done = new Promise((resolve, reject) => ff.on('exit', (c) => (c === 0 ? resolve() : reject(new Error('ffmpeg kode ' + c)))));
+  const n = Math.round(total * FPS);
+  const t0 = Date.now();
+  for (let i = 0; i < n; i++) {
+    await page.evaluate((x) => window.seek(x), i / FPS);
+    const buf = await page.screenshot({ type: 'png', optimizeForSpeed: true });
+    if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
+    if (i % 120 === 0) console.log(`[${fmt}] frame ${i}/${n} @ ${FPS} fps, ${SS}x, ${Math.round((Date.now() - t0) / 1000)} dtk`);
+  }
+  ff.stdin.end();
+  await done;
+  await page.close();
   console.log('Selesai:', out);
 }
 await browser.close(); server.close();

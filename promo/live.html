@@ -35,16 +35,17 @@ body.f916 .brandbar { left: 60px; top: 60px; } body.f169 .brandbar { left: 120px
 /* ponsel */
 .phone { position: absolute; background: #1d1a1f; border-radius: 74px; box-shadow: 0 50px 90px rgba(75, 29, 94, .30); animation: rise .9s cubic-bezier(.2,.8,.2,1) .15s both; }
 .phone .screen { position: absolute; inset: 14px; border-radius: 60px; overflow: hidden; background: #fff; }
-.phone iframe { position: absolute; left: 0; top: 0; width: 390px; height: 844px; border: 0; transform-origin: 0 0; background: #fff; }
+.phone iframe { position: absolute; left: 0; top: 0; width: 390px; height: 844px; border: 0; transform-origin: 0 0; background: #fff; will-change: transform; }
 .phone .island { position: absolute; z-index: 3; left: 50%; top: 30px; transform: translateX(-50%); width: 150px; height: 40px; border-radius: 22px; background: #1d1a1f; }
 
 /* teks langkah */
 .info { position: absolute; z-index: 4; display: none; }
 body.f916 .info { left: 60px; top: 190px; width: 960px; }
+.kick { margin-bottom: 14px; }
 body.f169 .info { left: 120px; top: 230px; width: 920px; }
 .kick { font-size: 26px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
 .info h1, .info h2 { margin: 0; font-weight: 700; letter-spacing: -.02em; line-height: 1.12; }
-body.f916 .info h1 { font-size: 84px; } body.f169 .info h1 { font-size: 92px; }
+body.f916 .info h1 { font-size: 70px; } body.f169 .info h1 { font-size: 92px; }
 .hl { color: var(--accent); }
 .pill { display: inline-flex; align-items: center; gap: 22px; background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 12px 40px 12px 14px; box-shadow: 0 14px 30px rgba(75, 29, 94, .10); }
 .pill .n { width: 78px; height: 78px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; font-size: 44px; display: grid; place-items: center; }
@@ -54,16 +55,17 @@ body.f916 .sub { font-size: 36px; max-width: 900px; } body.f169 .sub { font-size
 
 /* chip dan maskot */
 .chips { position: absolute; z-index: 5; display: none; gap: 20px; }
-body.f916 .chips { left: 26px; top: 700px; flex-direction: column; align-items: flex-start; }
+body.f916 .chips { left: 60px; top: 432px; flex-direction: row; align-items: center; gap: 16px; }
+body.f916 .chip { font-size: 28px; padding: 12px 26px; }
 body.f169 .chips { left: 120px; top: 690px; flex-direction: row; flex-wrap: wrap; width: 900px; }
 .chip { background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 14px 32px; font-size: 32px; font-weight: 700; box-shadow: 0 14px 28px rgba(75, 29, 94, .16); }
 .mascot { position: absolute; z-index: 5; display: none; align-items: flex-end; gap: 18px; }
-body.f916 .mascot { right: 34px; top: 1450px; flex-direction: column; align-items: flex-end; }
+body.f916 .mascot { left: 60px; top: 1746px; flex-direction: row; align-items: center; }
 body.f169 .mascot { left: 120px; top: 850px; flex-direction: row; align-items: center; }
 .mascot .av { width: 130px; height: 130px; border-radius: 50%; border: 4px solid var(--pink); background: #fff; overflow: hidden; box-shadow: 0 16px 30px rgba(75, 29, 94, .22); animation: floaty 3s ease-in-out infinite; }
 .mascot .av img { display: block; width: 100%; height: 100%; }
 .say { max-width: 440px; background: #fff; border: 2px solid var(--line); border-radius: 26px; padding: 16px 26px; font-size: 30px; font-weight: 700; line-height: 1.3; box-shadow: 0 14px 28px rgba(75, 29, 94, .16); }
-body.f916 .say { border-bottom-right-radius: 6px; } body.f169 .say { border-bottom-left-radius: 6px; }
+body.f916 .say, body.f169 .say { border-bottom-left-radius: 6px; }
 
 /* tampil per adegan */
 body[data-scene="0"] .s0, body[data-scene="1"] .s1, body[data-scene="2"] .s2, body[data-scene="3"] .s3, body[data-scene="4"] .s4 { display: block; }
@@ -134,13 +136,15 @@ var FMT = (new URLSearchParams(location.search).get('fmt') === '169') ? '169' : 
 document.body.className = 'f' + FMT;
 var SIZE = FMT === '169' ? { w: 1920, h: 1080 } : { w: 1080, h: 1920 };
 // bingkai ponsel per format (piksel kanvas)
-var PH = FMT === '169' ? { left: 1250, top: 40, w: 500, h: 1000 } : { left: 226, top: 470, w: 628, h: 1326 };
+var PH = FMT === '169' ? { left: 1250, top: 40, w: 500, h: 1000 } : { left: 226, top: 520, w: 628, h: 1190 };
 var phone = document.getElementById('phone');
 phone.style.cssText += ';left:' + PH.left + 'px;top:' + PH.top + 'px;width:' + PH.w + 'px;height:' + PH.h + 'px';
 var SCALE = (PH.w - 28) / 390;
 var site = document.getElementById('site');
 site.style.transform = 'scale(' + SCALE + ')';
-site.style.height = Math.ceil((PH.h - 28) / SCALE) + 'px';
+var OFF = 78; // ruang bilah status di atas situs, tempat pulau kamera
+site.style.top = OFF + 'px';
+site.style.height = (Math.ceil((PH.h - 28 - OFF) / SCALE) + 3) + 'px';
 
 // jadwal adegan (detik)
 var SC = [[0, 4.0], [4.0, 9.6], [9.6, 14.4], [14.4, 19.2], [19.2, 24.0], [24.0, 29.0]];
@@ -167,7 +171,7 @@ window.liveReady = new Promise(function (resolve) {
     var st = doc.createElement('style');
     st.textContent = 'html{scroll-behavior:auto!important} .rv{opacity:1!important;transform:none!important}' +
       '.hero .wrap>div:first-child>*,.hero-art,.hero h1 .w{animation:none!important;opacity:1!important;transform:none!important}' +
-      '.fab,.progress{display:none!important} .need:hover,.post:hover{transform:none!important}';
+      '.fab,.progress{display:none!important} .need:hover,.post:hover{transform:none!important} header.top{will-change:transform}';
     doc.head.appendChild(st);
     doc.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
     doc.querySelectorAll('.rv').forEach(function (n) { n.classList.add('in'); });
@@ -178,12 +182,16 @@ window.liveReady = new Promise(function (resolve) {
         HEAD = head ? head.getBoundingClientRect().height : 118;
         function top(id) { var e = doc.getElementById(id); return e.getBoundingClientRect().top + win.scrollY - HEAD - 6; }
         var L = top('layanan'), D = top('dokter'), U = top('ulasan'), K = top('lokasi');
-        keys = [[0, 0], [3.4, 0], [4.9, L], [9.0, L + 420], [10.6, D], [13.8, D + 280], [15.4, U], [18.6, U + 300], [20.0, K], [23.6, K + 560], [29, K + 560]];
+        keys = [[0, 0], [0.9, 0], [3.4, 320], [4.9, L], [9.0, L + 420], [10.6, D], [13.8, D + 280], [15.4, U], [18.6, U + 300], [20.0, K], [23.6, K + 560], [29, K + 560]];
         resolve(true);
       }, 600);
     });
   }
-  if (site.contentDocument && site.contentDocument.readyState === 'complete') prep(); else site.addEventListener('load', prep);
+  // tunggu sampai dokumen situs (bukan about:blank) benar-benar selesai dimuat
+  var poll = setInterval(function () {
+    var d = site.contentDocument;
+    if (d && d.readyState === 'complete' && d.getElementById('layanan') && d.querySelector('header.top')) { clearInterval(poll); prep(); }
+  }, 100);
 });
 
 window.seek = function (t) {
@@ -193,7 +201,10 @@ window.seek = function (t) {
   document.body.setAttribute('data-scene', String(scene));
   // situs: gulir dan bekukan semua animasi pada keadaan akhir
   var win = site.contentWindow, doc = site.contentDocument;
-  win.scrollTo(0, scrollAt(t));
+  var y = scrollAt(t), iy = Math.floor(y), fr = y - iy;   // gulir bulat + sisa pecahan lewat transform agar halus
+  win.scrollTo(0, iy);
+  site.style.transform = 'translateY(' + (-fr * SCALE).toFixed(3) + 'px) scale(' + SCALE + ')';
+  var hd = doc.querySelector('header.top'); if (hd) hd.style.transform = 'translateY(' + fr.toFixed(4) + 'px)';
   doc.getAnimations().forEach(function (a) {
     a.pause();
     var inf = false; try { inf = a.effect.getComputedTiming().iterations === Infinity; } catch (e) {}
