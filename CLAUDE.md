@@ -15,6 +15,7 @@ Landing page statis (HTML, CSS, JS biasa, tanpa build). Isi dan sumber data ada 
 - **Target sentuh:** minimal 44 px. **Kontras teks:** minimal 4,5:1.
 - **Gambar:** WebP, ukuran sesuai tampilan, atribut `width` dan `height`, `loading="lazy"` kecuali di atas lipatan.
 - **Sudut pandang teks:** tulis dari sudut pandang klinik ("kami", "Anda"), bukan sebagai pembuat situs. Jangan menyebut sumber data di halaman ("papan klinik", "profil TikTok", "bio Instagram", "hanya contoh"). Sumber dicatat di `README.md`, bukan di halaman.
+- **Hierarki kata untuk hewan:** "anabul" untuk judul, banner, dan ajakan (emosional, ringkas). "peliharaan Anda" untuk teks isi agar tidak monoton. "hewan peliharaan" untuk fondasi SEO (meta, data terstruktur, teks alternatif). Teks yang ditulis pemilik tidak diubah.
 - **Jangan mengarang** harga, testimoni, atau layanan. Data hanya dari sumber di `README.md`.
 
 ## Memakai skill UI/UX Pro Max
