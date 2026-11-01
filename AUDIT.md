@@ -123,3 +123,7 @@ Foto potongan di hero diganti ilustrasi dokter bersama anjing, kucing, dan kelin
 - **Hero:** ilustrasi dipisahkan dari latar (Vision, di Mac, tanpa unduhan model). Papan tulis, rak buku, tanaman, meja, buku, buku catatan, dan laptop dibuang. Yang tersisa dokter dan enam hewan (WebP transparan 900 px, 90 KB). Label "Ilustrasi", kartu pink, border, dan dua foto klinik dihapus dari hero.
 - **Dokter di balik klinik:** layout mengikuti referensi Nicepage "Our Medical Team": judul di tengah di atas pita warna aksen, kartu putih berisi potret (avatar animasi), nama berwarna aksen, dan spesialisasi miring. Statistik pengikut dan tombol TikTok dan Instagram dihapus dari bagian ini karena sudah ada di bagian Sosial Media.
 - Skrip `tools/cutout.swift` sekarang juga bisa mengekspor peta objek per elemen.
+
+## 13. Penutup bagian ulasan (1 November 2026)
+
+Catatan "Ulasan diterjemahkan ke bahasa Indonesia" dan dua tombol "Semua ulasan Klinik Suko" dan "Semua ulasan Klinik Sidokare Asri" dihapus dari bagian ulasan atas permintaan pemilik. Tautan ke Google Maps masih tersedia di bagian Pilih klinik (tombol Petunjuk arah).
