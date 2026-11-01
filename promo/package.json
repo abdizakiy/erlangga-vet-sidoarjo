@@ -1,0 +1,13 @@
+{
+  "name": "erlangga-promo-render",
+  "private": true,
+  "type": "module",
+  "description": "Render animasi promo (9:16) dari promo.html menjadi MP4",
+  "scripts": {
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.3.0",
+    "puppeteer-core": "^25.16.0"
+  }
+}

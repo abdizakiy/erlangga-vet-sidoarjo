@@ -91,7 +91,10 @@ a { color: inherit; }
 .hero h1 { font-size: clamp(2rem, 4.8vw, 3.2rem); }
 .hero .lead { margin-top: 20px; font-size: 1.0625rem; color: var(--muted); max-width: 54ch; }
 
-.panel { display: grid; gap: 12px; min-width: 0; }
+.panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; min-width: 0; }
+.cut { grid-column: 1 / -1; position: relative; margin-top: 70px; background: var(--soft); border: 1px solid var(--line); border-radius: 28px; }
+.cut img { display: block; width: 92%; height: auto; margin: -70px auto 0; }
+.panel .shot img { aspect-ratio: 4 / 3; }
 .shot { margin: 0; position: relative; border: 1px solid var(--line); border-radius: 24px; overflow: hidden; background: var(--band); min-width: 0; }
 .shot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
 .panel .tag { position: absolute; left: 20px; bottom: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 0.8125rem; font-weight: 600; }
@@ -444,6 +447,9 @@ html.js .rv:not(.in) { opacity: 0.55; transform: translateY(16px); }
         </div>
       </div>
       <div class="panel">
+        <div class="cut">
+          <img src="assets/hero-cutout.png" width="946" height="886" alt="Petugas klinik berjaket ungu menggendong kucing yang sudah pulih">
+        </div>
         <figure class="shot">
           <img src="assets/klinik-suko-depan.jpg" width="1600" height="900" alt="Tampak depan klinik Drh. Erlangga di Suko, dengan papan nama merah muda dan papan klinik hewan dan petshop">
           <figcaption class="tag">Vetcare 1, Suko</figcaption>
