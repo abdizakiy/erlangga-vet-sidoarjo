@@ -29,16 +29,16 @@ Lalu buka http://localhost:8000.
 | Data | Sumber |
 |---|---|
 | Alamat, rating, jumlah ulasan, topik ulasan | Google Maps, kedua klinik |
-| Jam praktik | Bio Instagram `@drh.erlangga_petshop_petcare`; papan klinik menyebut praktik sesuai perjanjian |
+| Jam dan hari praktik | Bio Instagram `@drh.erlangga_petshop_petcare` (Selasa–Minggu, Senin libur); papan klinik menyebut praktik sesuai perjanjian |
 | Spesialisasi dokter (surgery, interna, dermatology) | Bio TikTok `@doktererlanggavetcare` |
 | Nama dua dokter, nomor WhatsApp dan telepon, daftar layanan, "buka sesuai perjanjian" | Papan nama klinik pada foto tampak depan Suko (Google Maps) |
 | Gambar edukasi dan testimoni, peringatan penipuan | Postingan Instagram klinik |
 
 ## Hal yang perlu diperiksa pemilik
 
-- **Daftar harga:** tidak ditemukan di Google Maps, Instagram (tanpa login hanya 12 postingan terbaru yang terlihat), TikTok, maupun papan klinik. Tidak ada angka harga di halaman. Tambahkan bagian harga setelah daftar tersedia, misalnya tabel di bawah bagian Layanan.
+- **Daftar harga:** tidak ditemukan di Google Maps, Instagram (tanpa login hanya 12 postingan terbaru yang terlihat, highlight dan stories butuh login), Threads (hanya postingan terbaru), TikTok (video tidak termuat), link `business.site` di bio (404), maupun papan klinik. Tidak ada angka harga di halaman. Tambahkan bagian harga setelah daftar tersedia, misalnya tabel di bawah bagian Layanan.
 - **Daftar layanan:** diambil dari spanduk kiri pada papan klinik, yang sebagian tertutup tanaman. Bagian yang terbaca: pengobatan semua hewan, cat hotel, bedah, sterilisasi, grooming terapi, vaksinasi, nebulizer, USG, dan inap. Satu baris tidak terbaca. Pastikan daftar ini benar dan lengkap.
-- **Jam praktik:** papan klinik menulis "buka sesuai perjanjian", sedangkan bio Instagram menulis 12.00–20.30 (Suko) dan 11.00–20.30 (Sidokare Asri). Google Maps menulis Suko tutup 21.00. Samakan.
+- **Jam praktik:** bio Instagram menulis Suko 12.00–20.30 dan Sidokare Asri 11.00–20.30, buka Selasa–Minggu, Senin libur. Papan klinik menulis "buka sesuai perjanjian". Google Maps menulis Suko tutup 21.00, dan bio Threads (kemungkinan salinan lama) menulis 11.00–21.00 dan 09.45–21.00. Halaman memakai bio Instagram. Pastikan jam yang berlaku.
 - **Nomor telepon:** papan klinik mencantumkan dua nomor, 0857-4594-8865 (ada ikon WhatsApp) dan 0812-8740-2949, di bawah kedua alamat klinik. Halaman memakai 0857 sebagai WhatsApp utama. Ubah di `index.html` dan data JSON-LD jika berbeda.
 - **Dokter:** papan klinik menyebut Drh. Yudha Bayu Erlangga dan Drh. Radhita Andriani. Spesialisasi (surgery, interna, dermatology) berasal dari bio TikTok akun "Drh. Erlangga". Dianggap sama dengan Drh. Yudha Bayu Erlangga. Pastikan, dan tambahkan keterangan untuk Drh. Radhita Andriani.
 - **Tanda darurat:** daftar umum, bukan dari sumber klinik. Sesuaikan dengan pedoman dokter.
