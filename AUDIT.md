@@ -95,3 +95,15 @@ Hal yang perlu dipastikan pemilik karena berasal dari teks feedback:
 - Hero hanya menyebut **kucing dan anjing** serta **Sukodono**. Konten edukasi masih memuat kelinci, dan klinik kedua di Candi masih ada di bagian lokasi.
 - **Foto dokter**: kartu dokter memakai foto petugas berjaket ungu dari postingan testimoni dengan lencana "Tim Drh. Erlangga", karena identitasnya belum dikonfirmasi. Ganti dengan foto dokter dan nama yang benar.
 - Teks hero baru mirip susunan layanan di situs Mommy Pet Care. Pastikan wording akhirnya milik klinik sendiri.
+
+## 9. Putaran revisi kedua (1 November 2026)
+
+| Permintaan | Tindakan |
+|---|---|
+| Rollback bagian dokter, harus ada 2 foto, atau buat aset animasi profil | Bagian "Dua dokter hewan" dipulihkan. Karena belum ada foto dokter, dibuat dua avatar ilustrasi beranimasi (`assets/dokter-erlangga.svg`, `assets/dokter-radhita.svg`): mata berkedip, kepala bergerak halus, stetoskop berdenyut. Animasi mati saat "kurangi gerakan". Ganti dengan foto asli jika sudah ada. |
+| Ulasan: bahasa Indonesia, satu review untuk semua klinik | Lima kutipan diterjemahkan ke bahasa Indonesia dengan catatan "diterjemahkan dari bahasa aslinya". Label per klinik dihapus. Rating gabungan sekitar 4,9 dari 1.655 ulasan (1.182 + 473). |
+| Istilah "Vetcare" menjadi "Klinik" | "Klinik Suko" dan "Klinik Sidokare Asri" di semua teks, teks alternatif, data terstruktur, dan dokumen. |
+| Rollback kabar sosial, judul "Sosial Media kami" | Bagian edukasi dipulihkan (enam kartu), dengan judul dan sub judul baru serta tautan Instagram dan TikTok. Menu: "Sosial Media". |
+| Rollback lokasi, hapus tombol "Salin" | Dua kartu klinik dipulihkan. Tombol Salin dan skripnya dihapus. |
+
+Video promo belum dirender ulang, jadi masih menyebut "Vetcare" di versi lama. Skrip pembuatnya sudah diperbarui.

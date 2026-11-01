@@ -121,8 +121,8 @@ html = f"""<!doctype html>
       <div class="num r" style="--d:.9s">0857-4594-8865</div>
       <div class="sub2 r" style="--d:1s">Praktik sesuai perjanjian · Selasa–Minggu</div>
       <div class="locs">
-        <div class="r" style="--d:1.2s"><b>Vetcare 1</b> · Suko, Sukodono</div>
-        <div class="r" style="--d:1.4s"><b>Vetcare 2</b> · Sidokare Asri, Candi</div>
+        <div class="r" style="--d:1.2s"><b>Klinik Suko</b> · Suko, Sukodono</div>
+        <div class="r" style="--d:1.4s"><b>Klinik Sidokare Asri</b> · Sidokare Asri, Candi</div>
       </div>
       <div class="hn r" style="--d:1.7s"><span>Instagram @drh.erlangga_petshop_petcare</span><span>TikTok @doktererlanggavetcare</span></div>
     </div>
