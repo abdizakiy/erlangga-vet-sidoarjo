@@ -107,3 +107,9 @@ Hal yang perlu dipastikan pemilik karena berasal dari teks feedback:
 | Rollback lokasi, hapus tombol "Salin" | Dua kartu klinik dipulihkan. Tombol Salin dan skripnya dihapus. |
 
 Video promo belum dirender ulang, jadi masih menyebut "Vetcare" di versi lama. Skrip pembuatnya sudah diperbarui.
+
+## 10. Sudut pandang teks (1 November 2026)
+
+Seluruh teks halaman ditulis ulang dari sudut pandang klinik ("kami" dan "Anda"). Frasa yang berbicara sebagai pembuat situs dihapus: "mengikuti papan nama klinik", "tercantum di papan klinik", "profil TikTok mencantumkan", "jam mengikuti bio Instagram", "Google Maps mencantumkan tutup 21.00", "cuplikan ulasan asli", "percakapan hanya contoh", dan catatan tanggal rating di footer. Sumber data tetap tercatat di `README.md`.
+
+Konsekuensinya: perbedaan jam tutup Klinik Suko (bio Instagram 20.30, Google Maps 21.00) tidak lagi disebut di halaman. Pemilik perlu memastikan jam yang benar.

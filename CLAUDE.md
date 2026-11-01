@@ -14,6 +14,7 @@ Landing page statis (HTML, CSS, JS biasa, tanpa build). Isi dan sumber data ada 
 - **Animasi:** hanya `transform` dan `opacity`. Semua animasi harus mati saat `prefers-reduced-motion`. Animasi tak berujung harus dijeda di luar layar.
 - **Target sentuh:** minimal 44 px. **Kontras teks:** minimal 4,5:1.
 - **Gambar:** WebP, ukuran sesuai tampilan, atribut `width` dan `height`, `loading="lazy"` kecuali di atas lipatan.
+- **Sudut pandang teks:** tulis dari sudut pandang klinik ("kami", "Anda"), bukan sebagai pembuat situs. Jangan menyebut sumber data di halaman ("papan klinik", "profil TikTok", "bio Instagram", "hanya contoh"). Sumber dicatat di `README.md`, bukan di halaman.
 - **Jangan mengarang** harga, testimoni, atau layanan. Data hanya dari sumber di `README.md`.
 
 ## Memakai skill UI/UX Pro Max
