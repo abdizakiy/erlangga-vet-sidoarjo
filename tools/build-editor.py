@@ -78,7 +78,7 @@ EDITOR_UI = r"""
     <div class="row"><span>Warna tombol dan teks aksen</span><input type="color" id="ed-c-accent" value="#a8478f"></div>
     <div class="row"><span>Latar bagian pink muda</span><input type="color" id="ed-c-band" value="#fdf4f9"></div>
     <label for="ed-font">Font judul</label>
-    <select id="ed-font"><option value="Courgette">Courgette (sekarang)</option><option value="Kaushan Script">Kaushan Script</option><option value="Montserrat">Montserrat</option></select>
+    <select id="ed-font"><option value="Montserrat">Montserrat tebal (sekarang)</option><option value="Kaushan Script">Kaushan Script</option></select>
     <label for="ed-scale">Ukuran teks: <span id="ed-scale-v">100</span>%</label>
     <input type="range" id="ed-scale" min="90" max="120" value="100" step="2" style="width:100%">
     <p class="hint">Warna teks tombol bisa tidak terbaca jika terlalu terang. Periksa kontrasnya sebelum dipakai.</p>
@@ -328,7 +328,7 @@ EDITOR_JS = r"""<script id="ed-script">
   $('ed-c-pink').addEventListener('input', function (e) { setVar('--pink', e.target.value); });
   $('ed-c-accent').addEventListener('input', function (e) { setVar('--accent', e.target.value); });
   $('ed-c-band').addEventListener('input', function (e) { setVar('--band', e.target.value); });
-  $('ed-font').addEventListener('change', function (e) { var f = e.target.value; setVar('--font-headline', '"' + f + '", "Kaushan Script", cursive'); });
+  $('ed-font').addEventListener('change', function (e) { var f = e.target.value; setVar('--font-headline', f === 'Montserrat' ? '"Montserrat", system-ui, sans-serif' : '"' + f + '", cursive'); root.style.setProperty('--headline-weight', f === 'Montserrat' ? '700' : '400'); });
   $('ed-scale').addEventListener('input', function (e) { $('ed-scale-v').textContent = e.target.value; root.style.fontSize = e.target.value + '%'; touch(); });
 
   // ---------- tombol bilah alat ----------

@@ -13,7 +13,7 @@ PRIMARY_CTA         = "Konsultasi lewat WhatsApp (0857-4594-8865)"
 VISUAL_STYLE        = "Bersih, dominan putih, hangat, bernuansa tulisan tangan"
 MOOD                = "Ramah, tepercaya, personal"
 COLOR_DIRECTION     = "Putih; pink anggrek logo #b858a0 untuk dekorasi; #a8478f untuk teks dan tombol"
-TYPOGRAPHY_STYLE    = "Kaushan Script (nama merek), Courgette (judul), Montserrat (isi dan label)"
+TYPOGRAPHY_STYLE    = "Kaushan Script (nama merek), Montserrat (judul tebal, isi, dan label)"
 GRAPHIC_LANGUAGE    = "Berlian dari logo, cakar, foto asli klinik, kartu edukasi Instagram"
 ANIMATION_STYLE     = "Halus dan bermakna; adegan ponsel bergaya video promo; bergerak hanya dengan transform dan opacity"
 TECH_STACK          = "HTML + CSS + JS biasa, tanpa build, tanpa dependensi"
@@ -127,3 +127,7 @@ Foto potongan di hero diganti ilustrasi dokter bersama anjing, kucing, dan kelin
 ## 13. Penutup bagian ulasan (1 November 2026)
 
 Catatan "Ulasan diterjemahkan ke bahasa Indonesia" dan dua tombol "Semua ulasan Klinik Suko" dan "Semua ulasan Klinik Sidokare Asri" dihapus dari bagian ulasan atas permintaan pemilik. Tautan ke Google Maps masih tersedia di bagian Pilih klinik (tombol Petunjuk arah).
+
+## 14. Semua judul memakai Montserrat (1 November 2026)
+
+Courgette dihapus seluruhnya. Judul hero, judul bagian (h2), dan judul kartu layanan yang disorot kini memakai Montserrat 700 dengan jarak antarhuruf -0,015em. Tanda kutip di kartu ulasan memakai serif sistem. Hanya nama "Drh.Erlangga" di header yang masih Kaushan Script. Satu font lebih sedikit dimuat dari Google Fonts. Pilihan font judul di editor diperbarui (Montserrat atau Kaushan Script).
