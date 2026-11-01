@@ -23,6 +23,7 @@ Lalu buka http://localhost:8000.
 - **Font:** Kaushan Script hanya untuk nama "Drh.Erlangga" di header, meniru tulisan tangan pada logo. Courgette untuk judul (bergaya sama tapi lebih mudah dibaca). Montserrat untuk isi, dengan label huruf kapital renggang seperti "PETSHOP & PETCARE". Semuanya dimuat dari Google Fonts.
 - **Pola layout** (terinspirasi dari situs klinik lain, tanpa menyalin teks atau foto): tombol WhatsApp melayang, pilihan layanan berdasarkan kebutuhan, bagian tanda darurat, langkah layanan, dan profil dokter.
 - **Interaksi:** tombol konsultasi dan kartu layanan membuka WhatsApp dengan pesan yang sudah terisi. Tombol salin nomor ada di kartu lokasi.
+- **Animasi:** bagian "Cara mendapatkan layanan" berupa adegan motion graphic bergaya video promo (ponsel, chip, maskot, gelembung ucapan) yang berganti tiga langkah setiap 5,5 detik saat terlihat dan berhenti saat kursor di atasnya. Langkah juga bisa dipilih manual. Hero dan bagian lain muncul dengan animasi halus. Semua animasi dimatikan jika pengunjung memilih "kurangi gerakan" di perangkatnya. Percakapan di ponsel hanya contoh ilustrasi.
 
 ## Sumber data (per 1 November 2026)
 
