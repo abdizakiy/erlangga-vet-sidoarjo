@@ -109,7 +109,7 @@ EDITOR_JS = r"""<script id="ed-script">
 (function () {
   var root = document.documentElement;
   var KEY = 'erlangga-editor-v1';
-  var ITEM_PARENTS = '.needs, .edu, .places, .channels, .points, .signs, .docs, .fields, .reach';
+  var ITEM_PARENTS = '.needs, .feed, .rev, .ticks, .pk-list';
   var $ = function (id) { return document.getElementById(id); };
   var on = false, secTarget = null, itemTarget = null, selected = null, saveTimer = null;
 

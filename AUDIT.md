@@ -77,3 +77,21 @@ Diukur ulang setelah semua perbaikan: kontras di bawah 4,5:1 = 0, target sentuh 
 - **Skala spasi dan tipografi** belum dijadikan token (masih nilai langsung di CSS).
 - **CSS tak terpakai** dari versi lama (`.services` dan sejenisnya) belum dibersihkan.
 - **Tes perangkat nyata**: diuji di emulasi browser, belum di ponsel fisik.
+
+## 8. Perubahan dari feedback (Google Docs, 1 November 2026)
+
+| Feedback | Tindakan |
+|---|---|
+| Ubah teks hero (judul dan paragraf) | Diganti persis sesuai dokumen. Frasa "kebutuhan peliharaan" diberi warna aksen. |
+| Hapus: chip status jam, ticker layanan, catatan harga, bagian "Jangan menunggu terlalu lama", peringatan penipuan, wordmark footer | Semua dihapus, termasuk CSS-nya. |
+| Dokter: ikuti referensi (kartu foto + salinan) | Kartu foto di kiri dengan lencana nama, judul, kotak kutipan dari ulasan, tiga poin centang, dan tombol WhatsApp. |
+| Ulasan: ikuti referensi (kartu testimoni geser) | Lima kartu ulasan asli Google Maps yang bisa digeser dengan panah dan keyboard, plus tombol ke ulasan di kedua klinik. Grafik topik ulasan dihapus. |
+| Edukasi dan kanal resmi: ikuti referensi "Social Feed" | Digabung menjadi satu bagian "Kabar terbaru dari klinik" berisi enam kartu postingan Instagram (tanggal, akun, takarir) dan tautan Instagram dan TikTok. |
+| Lokasi: ikuti referensi "pilih toko" | Dua panel: detail klinik terpilih di kiri, daftar klinik di kanan. Berfungsi tanpa JavaScript (tombol radio). Di ponsel daftar tampil lebih dulu. |
+
+Hal yang perlu dipastikan pemilik karena berasal dari teks feedback:
+
+- **Home visit** dan **pet hotel** disebut di hero, tetapi tidak ada di sumber publik yang saya baca. Papan klinik hanya menulis "Cat Hotel", dan "home visit" tidak ditemukan di mana pun.
+- Hero hanya menyebut **kucing dan anjing** serta **Sukodono**. Konten edukasi masih memuat kelinci, dan klinik kedua di Candi masih ada di bagian lokasi.
+- **Foto dokter**: kartu dokter memakai foto petugas berjaket ungu dari postingan testimoni dengan lencana "Tim Drh. Erlangga", karena identitasnya belum dikonfirmasi. Ganti dengan foto dokter dan nama yang benar.
+- Teks hero baru mirip susunan layanan di situs Mommy Pet Care. Pastikan wording akhirnya milik klinik sendiri.
