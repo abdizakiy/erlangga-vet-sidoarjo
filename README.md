@@ -17,6 +17,13 @@ python3 -m http.server 8000
 
 Lalu buka http://localhost:8000.
 
+## Desain
+
+- **Warna:** dominan putih dengan pink anggrek dari logo (`--pink: #b858a0` untuk dekorasi, `--accent: #a8478f` untuk teks dan tombol agar kontrasnya cukup). Semua warna ada di blok `:root` pada `index.html`.
+- **Font:** Kaushan Script untuk judul, meniru tulisan tangan "Drh.Erlangga" pada logo. Montserrat untuk isi, dengan label huruf kapital renggang seperti "PETSHOP & PETCARE". Keduanya dimuat dari Google Fonts.
+- **Pola layout** (terinspirasi dari situs klinik lain, tanpa menyalin teks atau foto): tombol WhatsApp melayang, pilihan layanan berdasarkan kebutuhan, bagian tanda darurat, langkah layanan, dan profil dokter.
+- **Interaksi:** semua tombol konsultasi membuka dialog pilihan klinik dengan pesan WhatsApp yang sudah terisi. Status "buka sekarang" dihitung dari jam WIB.
+
 ## Sumber data (per 1 November 2026)
 
 | Data | Sumber |
@@ -33,6 +40,8 @@ Lalu buka http://localhost:8000.
 - **Daftar harga:** tidak ditemukan di Google Maps, Instagram, maupun TikTok, jadi tidak ada angka harga di halaman. Tambahkan bagian harga setelah daftar tersedia, misalnya sebagai tabel di bawah bagian Layanan.
 - **Nomor telepon Suko:** pastikan nomor `0812-8740-2949` memang untuk klinik Suko dan aktif di WhatsApp. Ubah di dua tempat: tombol WhatsApp di `index.html` dan data JSON-LD.
 - **Jam buka Suko:** bio Instagram menulis 12.00–20.30, Google Maps menulis tutup 21.00. Samakan.
+- **Status "buka sekarang":** dihitung dengan anggapan klinik buka setiap hari pada jam yang tertulis. Jika ada hari libur, tambahkan aturan harinya di fungsi `updateStatus` pada `index.html`.
+- **Tanda darurat:** daftar umum, bukan dari sumber klinik. Sesuaikan dengan pedoman dokter.
 - **Layanan:** daftar disusun dari topik ulasan dan bio dokter. Hapus atau tambah sesuai layanan yang sebenarnya.
 - **Rating dan jumlah ulasan** ditulis manual dan akan basi. Perbarui secara berkala.
 - **Video:** halaman video TikTok tidak bisa dimuat saat pengumpulan data, jadi belum ada video di halaman.
