@@ -117,3 +117,9 @@ Konsekuensinya: perbedaan jam tutup Klinik Suko (bio Instagram 20.30, Google Map
 ## 11. Foto hero baru (1 November 2026)
 
 Foto potongan di hero diganti ilustrasi dokter bersama anjing, kucing, dan kelinci dari sampul reel Instagram klinik (19 September 2026). Sumber 540×960 px dipotong ke rasio 4:5, diperbesar ke 800 px dan dipertajam sedikit (WebP, 120 KB). Diberi label "Ilustrasi" di pojok kiri bawah. Foto potongan lama (`hero-cutout.*`) tidak lagi dipakai di halaman. Video promo masih memakainya sampai dirender ulang.
+
+## 12. Hero tanpa latar dan bagian dokter baru (1 November 2026)
+
+- **Hero:** ilustrasi dipisahkan dari latar (Vision, di Mac, tanpa unduhan model). Papan tulis, rak buku, tanaman, meja, buku, buku catatan, dan laptop dibuang. Yang tersisa dokter dan enam hewan (WebP transparan 900 px, 90 KB). Label "Ilustrasi", kartu pink, border, dan dua foto klinik dihapus dari hero.
+- **Dokter di balik klinik:** layout mengikuti referensi Nicepage "Our Medical Team": judul di tengah di atas pita warna aksen, kartu putih berisi potret (avatar animasi), nama berwarna aksen, dan spesialisasi miring. Statistik pengikut dan tombol TikTok dan Instagram dihapus dari bagian ini karena sudah ada di bagian Sosial Media.
+- Skrip `tools/cutout.swift` sekarang juga bisa mengekspor peta objek per elemen.

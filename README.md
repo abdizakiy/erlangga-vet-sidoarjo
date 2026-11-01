@@ -5,7 +5,7 @@ Landing page statis untuk klinik hewan Drh. Erlangga di Sidoarjo. Satu file HTML
 ## Isi
 
 - `index.html`: seluruh halaman (hero, layanan, ulasan, edukasi, lokasi, kontak, data terstruktur JSON-LD).
-- `assets/`: logo dan gambar edukasi dari akun Instagram klinik (`logo.jpg`, `testimoni.jpg`, `edukasi-*.jpg`), ilustrasi hero (`hero-ilustrasi.webp`, sampul reel Instagram klinik tanggal 19 September 2026), serta tiga foto klinik yang diunggah akun klinik sendiri di Google Maps (`klinik-suko-depan.jpg`, `klinik-vet2-resepsi.jpg`, `klinik-vet2-kandang.jpg`).
+- `assets/`: logo dan gambar edukasi dari akun Instagram klinik (`logo.jpg`, `testimoni.jpg`, `edukasi-*.jpg`), ilustrasi hero tanpa latar (`hero-dokter-hewan.webp`, dipotong dari sampul reel Instagram klinik tanggal 19 September 2026), serta tiga foto klinik yang diunggah akun klinik sendiri di Google Maps (`klinik-suko-depan.jpg`, `klinik-vet2-resepsi.jpg`, `klinik-vet2-kandang.jpg`).
 
 ## Dokumen lain
 
@@ -51,7 +51,7 @@ Lalu buka http://localhost:8000.
 - **Tanda darurat:** daftar umum, bukan dari sumber klinik. Sesuaikan dengan pedoman dokter.
 - **Rating dan jumlah ulasan** ditulis manual dan akan basi. Perbarui secara berkala.
 - **Video:** halaman video TikTok tidak bisa dimuat saat pengumpulan data, jadi belum ada video di halaman.
-- **Foto hero:** ilustrasi dokter bersama hewan diambil dari sampul reel Instagram klinik (540×960 px, diperbesar ke 800 px). Kirim berkas aslinya agar lebih tajam. Label "Ilustrasi" di pojoknya sengaja ditambahkan karena gambar ini karya ilustrasi, bukan foto.
+- **Foto hero:** ilustrasi dokter bersama hewan diambil dari sampul reel Instagram klinik (540×960 px, diperbesar ke 800 px). Kirim berkas aslinya agar lebih tajam. Latar, papan tulis, rak buku, tanaman, meja, dan laptop dibuang, hanya dokter dan hewan yang dipertahankan. Hasilnya dipotong otomatis, jadi tepi bawah hewan di dekat laptop dipudarkan.
 - **Foto lain:** foto interior lain di Google Maps diunggah pelanggan, jadi tidak dipakai. Ganti atau tambah dengan foto asli klinik beresolusi tinggi jika ada. Gambar Instagram hanya 512x640 px dan logo 150x150 px.
 
 ## Publikasi
