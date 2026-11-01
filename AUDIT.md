@@ -113,3 +113,7 @@ Video promo belum dirender ulang, jadi masih menyebut "Vetcare" di versi lama. S
 Seluruh teks halaman ditulis ulang dari sudut pandang klinik ("kami" dan "Anda"). Frasa yang berbicara sebagai pembuat situs dihapus: "mengikuti papan nama klinik", "tercantum di papan klinik", "profil TikTok mencantumkan", "jam mengikuti bio Instagram", "Google Maps mencantumkan tutup 21.00", "cuplikan ulasan asli", "percakapan hanya contoh", dan catatan tanggal rating di footer. Sumber data tetap tercatat di `README.md`.
 
 Konsekuensinya: perbedaan jam tutup Klinik Suko (bio Instagram 20.30, Google Maps 21.00) tidak lagi disebut di halaman. Pemilik perlu memastikan jam yang benar.
+
+## 11. Foto hero baru (1 November 2026)
+
+Foto potongan di hero diganti ilustrasi dokter bersama anjing, kucing, dan kelinci dari sampul reel Instagram klinik (19 September 2026). Sumber 540×960 px dipotong ke rasio 4:5, diperbesar ke 800 px dan dipertajam sedikit (WebP, 120 KB). Diberi label "Ilustrasi" di pojok kiri bawah. Foto potongan lama (`hero-cutout.*`) tidak lagi dipakai di halaman. Video promo masih memakainya sampai dirender ulang.

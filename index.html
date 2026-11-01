@@ -11,7 +11,7 @@
 <meta property="og:title" content="Drh. Erlangga Petshop & Petcare | Dokter Hewan Sidoarjo">
 <meta property="og:description" content="Dua klinik hewan di Sidoarjo dengan rating Google 4,9 dari 1.182 ulasan dan 5,0 dari 473 ulasan.">
 <link rel="icon" href="assets/logo.jpg">
-<link rel="preload" as="image" href="assets/hero-cutout.webp" type="image/webp">
+<link rel="preload" as="image" href="assets/hero-ilustrasi.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&family=Kaushan+Script&family=Montserrat:wght@400;500;600;700&display=swap">
@@ -94,8 +94,9 @@ a { color: inherit; }
 .hero .lead { margin-top: 20px; font-size: 1.0625rem; color: var(--muted); max-width: 54ch; }
 
 .panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; min-width: 0; }
-.cut { grid-column: 1 / -1; position: relative; margin-top: 70px; background: var(--soft); border: 1px solid var(--line); border-radius: 28px; }
-.cut img { display: block; width: 92%; height: auto; margin: -70px auto 0; }
+.cut { grid-column: 1 / -1; position: relative; background: var(--soft); border: 1px solid var(--line); border-radius: 28px; overflow: hidden; }
+.cut img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 0; }
+.cut .ill { position: absolute; left: 14px; bottom: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; font-size: 0.75rem; font-weight: 600; color: var(--accent-deep); }
 .panel .shot img { aspect-ratio: 4 / 3; }
 .shot { margin: 0; position: relative; border: 1px solid var(--line); border-radius: 24px; overflow: hidden; background: var(--band); min-width: 0; }
 .shot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
@@ -490,7 +491,8 @@ html.js .rv:not(.in) { opacity: 0.55; transform: translateY(16px); }
       </div>
       <div class="panel">
         <div class="cut">
-          <img src="assets/hero-cutout.webp" width="800" height="749" fetchpriority="high" decoding="async" alt="Tim kami berjaket ungu menggendong kucing yang sudah pulih">
+          <img src="assets/hero-ilustrasi.webp" width="800" height="1037" fetchpriority="high" decoding="async" alt="Ilustrasi dokter hewan tersenyum di meja praktik, dikelilingi anjing, kucing, dan kelinci">
+          <span class="ill">Ilustrasi</span>
         </div>
         <figure class="shot">
           <img src="assets/klinik-suko-depan.webp" width="1000" height="562" alt="Tampak depan Klinik Suko kami">
